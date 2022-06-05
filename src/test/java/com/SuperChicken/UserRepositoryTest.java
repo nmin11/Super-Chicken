@@ -43,7 +43,7 @@ public class UserRepositoryTest {
     void save_test() {
         String email = "abcd@efgh.com";
         String name = "Loko";
-        String phone = "+8212345678";
+        String phone = "+82 12345678";
         boolean agreement = true;
 
         userRepository.save(User.builder()
