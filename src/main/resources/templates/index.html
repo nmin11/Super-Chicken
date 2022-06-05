@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Super Chicken</title>
+</head>
+<body>
+<h3>Event Submit</h3>
+<form th:action="@{/register}" th:object="${registerDto}" method="post">
+  <input type="text" th:field="*{name}" placeholder="Name">
+  <input type="email" th:field="*{email}" placeholder="Email">
+  <br/>
+  <label>Phone Number (nation code + phone)</label>
+  <select name="nationCode">
+    <optgroup label="North America"/>
+    <option th:value="${+1}">+1 USA</option>
+    <optgroup label="Africa and Atlantic Ocean"/>
+    <option th:value="${+20}">+20 Egypt</option>
+    <option th:value="${+211}">+211 South Sudan</option>
+    <option th:value="${+212}">+212 Morocco & Western Sahara</option>
+    <option th:value="${+213}">+213 Algeria</option>
+    <option th:value="${+216}">+216 Tunisia</option>
+    <option th:value="${+218}">+218 Libya</option>
+    <option th:value="${+220}">+220 Gambia</option>
+    <option th:value="${+221}">+221 Senegal</option>
+    <option th:value="${+222}">+222 Mauritania</option>
+    <option th:value="${+223}">+223 Mali</option>
+    <option th:value="${+224}">+224 Guinea</option>
+    <option th:value="${+225}">+225 Ivory Coast</option>
+    <option th:value="${+226}">+226 Burkina Faso</option>
+    <option th:value="${+227}">+227 Niger</option>
+    <option th:value="${+228}">+228 Togo</option>
+    <option th:value="${+229}">+229 Benin</option>
+    <option th:value="${+230}">+230 Mauritius</option>
+    <option th:value="${+231}">+231 Liberia</option>
+    <option th:value="${+232}">+232 Sierra Leone</option>
+    <option th:value="${+233}">+233 Ghana</option>
+    <option th:value="${+234}">+234 Nigeria</option>
+    <option th:value="${+235}">+235 Chad</option>
+    <option th:value="${+236}">+236 Central African Republic</option>
+    <option th:value="${+237}">+237 Cameroon</option>
+    <option th:value="${+238}">+238 Cape Verde</option>
+    <option th:value="${+239}">+239 Sao Tome and Principe</option>
+    <option th:value="${+240}">+240 Equatorial Guinea</option>
+    <option th:value="${+241}">+241 Gabonese</option>
+    <option th:value="${+242}">+242 Republic of the Congo</option>
+    <option th:value="${+243}">+243 Democratic Republic of the Congo</option>
+    <option th:value="${+244}">+244 Angola</option>
+    <option th:value="${+245}">+245 Guinea-Bissau</option>
+    <option th:value="${+248}">+248 Seychelles</option>
+    <option th:value="${+249}">+249 Sudan</option>
+    <option th:value="${+250}">+250 Rwanda</option>
+    <option th:value="${+251}">+251 Ethiopia</option>
+    <option th:value="${+253}">+253 Djibouti</option>
+    <option th:value="${+254}">+254 Kenya</option>
+    <option th:value="${+255}">+255 Tanzania</option>
+    <option th:value="${+256}">+256 Uganda</option>
+    <option th:value="${+257}">+257 Burundi</option>
+    <option th:value="${+258}">+258 Mozambique</option>
+    <option th:value="${+260}">+260 Zambia</option>
+    <option th:value="${+261}">+261 Madagascar</option>
+    <option th:value="${+263}">+263 Zimbabwe</option>
+    <option th:value="${+264}">+264 Namibia</option>
+    <option th:value="${+265}">+265 Malawi</option>
+    <option th:value="${+266}">+266 Lesotho</option>
+    <option th:value="${+267}">+267 Botswana</option>
+    <option th:value="${+268}">+268 Eswatini</option>
+    <option th:value="${+269}">+269 Comoros</option>
+    <option th:value="${+27}">+27 Republic of South Africa</option>
+    <option th:value="${+291}">+291 Eritrea</option>
+    <option th:value="${+299}">+299 Greenland</option>
+    <optgroup label="South Europe"/>
+    <option th:value="${+30}">+30 Greece</option>
+    <option th:value="${+31}">+31 Netherlands</option>
+    <option th:value="${+32}">+32 Belgium</option>
+    <option th:value="${+33}">+33 France</option>
+    <option th:value="${+34}">+34 Spain</option>
+    <option th:value="${+350}">+350 Gibraltar</option>
+    <option th:value="${+351}">+351 Portugal</option>
+    <option th:value="${+352}">+352 Luxembourg</option>
+    <option th:value="${+353}">+353 Ireland</option>
+    <option th:value="${+354}">+354 Iceland</option>
+    <option th:value="${+355}">+355 Albania</option>
+    <option th:value="${+356}">+356 Malta</option>
+    <option th:value="${+357}">+357 Cyprus</option>
+    <option th:value="${+358}">+358 Finland</option>
+    <option th:value="${+359}">+359 Bulgaria</option>
+    <option th:value="${+36}">+36 Hungary</option>
+    <option th:value="${+370}">+370 Lithuania</option>
+    <option th:value="${+371}">+371 Latvia</option>
+    <option th:value="${+372}">+372 Estonia</option>
+    <option th:value="${+373}">+373 Moldova</option>
+    <option th:value="${+374}">+374 Armenia</option>
+    <option th:value="${+375}">+375 Belarus</option>
+    <option th:value="${+376}">+376 Andorra</option>
+    <option th:value="${+377}">+377 Monaco</option>
+    <option th:value="${+378}">+378 San Marino</option>
+    <option th:value="${+380}">+380 Ukraine</option>
+    <option th:value="${+381}">+381 Serbia</option>
+    <option th:value="${+382}">+382 Montenegro</option>
+    <option th:value="${+383}">+383 Kosovo</option>
+    <option th:value="${+385}">+385 Croatia</option>
+    <option th:value="${+386}">+386 Slovenia</option>
+    <option th:value="${+387}">+387 Bosnia and Herzegovina</option>
+    <option th:value="${+389}">+289 North Macedonia</option>
+    <option th:value="${+39}">+39 Italy</option>
+    <optgroup label="North Europe"/>
+    <option th:value="${+40}">+40 Romania</option>
+    <option th:value="${+41}">+41 Switzerland</option>
+    <option th:value="${+420}">+420 Czech</option>
+    <option th:value="${+421}">+421 Slovak</option>
+    <option th:value="${+423}">+423 Liechtenstein</option>
+    <option th:value="${+43}">+43 Austria</option>
+    <option th:value="${+44}">+44 United Kingdom</option>
+    <option th:value="${+45}">+45 Denmark</option>
+    <option th:value="${+46}">+46 Sweden</option>
+    <option th:value="${+47}">+47 Norway</option>
+    <option th:value="${+48}">+48 Poland</option>
+    <option th:value="${+49}">+49 Germany</option>
+    <optgroup label="Central & South America"/>
+    <option th:value="${+501}">+501 Belize</option>
+    <option th:value="${+502}">+502 Guatemala</option>
+    <option th:value="${+503}">+503 El Salvador</option>
+    <option th:value="${+504}">+504 Honduras</option>
+    <option th:value="${+505}">+505 Nicaragua</option>
+    <option th:value="${+507}">+507 Panama</option>
+    <option th:value="${+508}">+508 Saint-Pierre et Miquelon</option>
+    <option th:value="${+509}">+509 Haiti</option>
+    <option th:value="${+51}">+51 Peru</option>
+    <option th:value="${+52}">+52 Mexico</option>
+    <option th:value="${+53}">+53 Cuba</option>
+    <option th:value="${+54}">+54 Argentina</option>
+    <option th:value="${+55}">+55 Brazil</option>
+    <option th:value="${+56}">+56 Chile</option>
+    <option th:value="${+57}">+57 Colombia</option>
+    <option th:value="${+58}">+58 Venezuela</option>
+    <option th:value="${+591}">+591 Bolivia</option>
+    <option th:value="${+592}">+592 Guyana</option>
+    <option th:value="${+593}">+593 Ecuador</option>
+    <option th:value="${+595}">+595 Paraguay</option>
+    <option th:value="${+596}">+596 Martinique</option>
+    <option th:value="${+597}">+597 Suriname</option>
+    <option th:value="${+598}">+598 Uruguay</option>
+    <optgroup label="Southeast Asia & Oceania"/>
+    <option th:value="${+60}">+60 Malaysia</option>
+    <option th:value="${+61}">+61 Australia</option>
+    <option th:value="${+62}">+62 Indonesia</option>
+    <option th:value="${+63}">+63 Philipine</option>
+    <option th:value="${+64}">+64 New Zealand</option>
+    <option th:value="${+65}">+65 Singapore</option>
+    <option th:value="${+66}">+66 Thailand</option>
+    <option th:value="${+670}">+670 East Timor</option>
+    <option th:value="${+673}">+673 Brunei</option>
+    <option th:value="${+674}">+674 Nauru</option>
+    <option th:value="${+675}">+675 Papua New Guinea</option>
+    <option th:value="${+676}">+676 Tonga</option>
+    <option th:value="${+677}">+677 Solomon Islands</option>
+    <option th:value="${+678}">+678 Vanuatu</option>
+    <option th:value="${+679}">+679 Fiji</option>
+    <option th:value="${+682}">+682 Cook Islands</option>
+    <option th:value="${+685}">+685 Samoa</option>
+    <option th:value="${+686}">+686 Kiribati</option>
+    <option th:value="${+687}">+687 New Caledonia</option>
+    <option th:value="${+688}">+688 Tuvalu</option>
+    <option th:value="${+689}">+689 Polynesia</option>
+    <option th:value="${+691}">+691 Federated States of Micronesia</option>
+    <option th:value="${+692}">+692 Marshall Islands</option>
+    <optgroup label="Eurasia"/>
+    <option th:value="${+7}">+7 Russia</option>
+    <optgroup label="East Asia & Indochina"/>
+    <option th:value="${+81}">+81 Japan</option>
+    <option th:value="${+82}">+82 Republic of Korea</option>
+    <option th:value="${+84}">+84 Vietnam</option>
+    <option th:value="${+852}">+852 Hong Kong</option>
+    <option th:value="${+853}">+853 Macau</option>
+    <option th:value="${+855}">+855 Cambodia</option>
+    <option th:value="${+856}">+856 Laos</option>
+    <option th:value="${+86}">+86 China</option>
+    <option th:value="${+880}">+880 Bangladesh</option>
+    <option th:value="${+886}">+886 Taiwan</option>
+    <optgroup label="South & West & Central Asia"/>
+    <option th:value="${+90}">+90 Turkey</option>
+    <option th:value="${+91}">+91 India</option>
+    <option th:value="${+92}">+92 Pakistan</option>
+    <option th:value="${+93}">+93 Afghanistan</option>
+    <option th:value="${+94}">+94 Sri Lanka</option>
+    <option th:value="${+95}">+95 Myanmar</option>
+    <option th:value="${+960}">+960 Maldives</option>
+    <option th:value="${+961}">+961 Lebanon</option>
+    <option th:value="${+962}">+962 Jordan</option>
+    <option th:value="${+963}">+963 Syrian Arab</option>
+    <option th:value="${+964}">+964 Iraq</option>
+    <option th:value="${+965}">+965 Kuwait</option>
+    <option th:value="${+966}">+966 Saudi Arabia</option>
+    <option th:value="${+967}">+967 Yemen</option>
+    <option th:value="${+968}">+968 Oman</option>
+    <option th:value="${+970}">+970 Palestine</option>
+    <option th:value="${+971}">+971 Arab Emirates</option>
+    <option th:value="${+972}">+972 Israel</option>
+    <option th:value="${+973}">+973 Bahrain</option>
+    <option th:value="${+974}">+974 Qatar</option>
+    <option th:value="${+975}">+975 Bhutan</option>
+    <option th:value="${+976}">+976 Mongolia</option>
+    <option th:value="${+977}">+977 Nepal</option>
+    <option th:value="${+98}">+98 Iran</option>
+    <option th:value="${+992}">+992 Tajikistan</option>
+    <option th:value="${+993}">+993 Turkmenistan</option>
+    <option th:value="${+994}">+994 Azerbaijan</option>
+    <option th:value="${+995}">+995 Georgia</option>
+    <option th:value="${+996}">+996 Kyrgyzstan</option>
+    <option th:value="${+998}">+998 Uzbekistan</option>
+  </select>
+  <input type="tel" th:field="*{phone}" placeholder="Phone">
+  <br/>
+  <span>Agreement on the collection and use of personal information</span>
+  <input type="radio" name="agreement" th:value="${true}">
+  <label>Agree</label>
+  <input type="radio" name="agreement" th:value="${false}">
+  <label>Deny</label>
+  <br/>
+  <br/>
+  <button class="submit">Event Submit!</button>
+</form>
+</body>
+</html>
