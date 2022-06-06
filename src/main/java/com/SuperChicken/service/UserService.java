@@ -6,10 +6,9 @@ import com.SuperChicken.dynamodb.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -33,11 +32,11 @@ public class UserService {
         }
     }
 
-    public List<User> findAll(Pageable pageable) {
+    public Page<User> findAll(Pageable pageable) {
         return userRepository.findAll(pageable);
     }
 
-    public List<User> findByNationCode(String nationCode, Pageable pageable) {
+    public Page<User> findByNationCode(String nationCode, Pageable pageable) {
         logger.info("nation code = " + nationCode);
         return userRepository.findAllByPhoneStartingWith(nationCode, pageable);
     }

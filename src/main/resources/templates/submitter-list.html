@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Submitter List</title>
+</head>
+<body>
+<table border="1">
+  <h3>Submitter List</h3>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Agreement</th>
+  </tr>
+  <tr th:each="submitter : ${submitters}">
+    <td th:text="${submitter.name}">Name</td>
+    <td th:text="${submitter.email}">Email</td>
+    <td>+<span th:text="${submitter.phone}"/></td>
+    <td th:text="${submitter.agreement}">Agreement</td>
+  </tr>
+</table>
+
+<br/>
+
+<th:block th:if="${searchingCondition.equals('all')} and ${totalPages != 0}" th:each="page : ${totalPages}">
+  <a th:href="@{/search-all(page = ${page})}" th:text="${page}"/><span> </span>
+</th:block>
+
+<th:block th:if="${searchingCondition.equals('nationCode')} and ${totalPages != 0}" th:each="page : ${totalPages}">
+  <a th:href="@{/search-nation-code(nationCode = ${nationCode}, page = ${page})}" th:text="${page}"/><span> </span>
+</th:block>
+
+<br/>
+<br/>
+
+<a th:href="@{/}">Home Page</a>
+<a th:href="@{/admin}">Admin Page</a>
+</body>
+</html>

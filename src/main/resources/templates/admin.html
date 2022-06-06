@@ -2,18 +2,16 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Super Chicken</title>
+  <title>Admin</title>
 </head>
 <body>
-<h3>Event Submit</h3>
-<form th:action="@{/submit}" th:object="${registerDto}" method="post">
-  <Label>Input your name and email</Label>
-  <br/>
-  <input type="text" th:field="*{name}" placeholder="Name">
-  <input type="email" th:field="*{email}" placeholder="Email">
-  <br/>
-  <br/>
-  <label>Input your phone number (nation code + phone)</label>
+<a th:href="@{/search-all(page = 1)}">Search all submitter</a>
+
+<br/>
+<br/>
+
+<form th:action="@{/search-nation-code(page = 1)}" th:object="${nationCodeDto}" method="get">
+  <label>Search submitter by nation code</label>
   <br/>
   <select name="nationCode">
     <optgroup label="North America"/>
@@ -214,23 +212,12 @@
     <option th:value="${+996}">+996 Kyrgyzstan</option>
     <option th:value="${+998}">+998 Uzbekistan</option>
   </select>
-  <input type="tel" th:field="*{phone}" placeholder="Phone">
-  <br/>
-  <br/>
-  <span>Agreement on the collection and use of personal information</span>
-  <br/>
-  <input type="radio" name="agreement" th:value="${true}">
-  <label>Agree</label>
-  <input type="radio" name="agreement" th:value="${false}">
-  <label>Deny</label>
-  <br/>
-  <br/>
-  <button class="submit">Event Submit!</button>
+  <button class="submit">Search By Nation Code</button>
 </form>
 
 <br/>
 <br/>
 
-<a th:href="@{/admin}">Admin Page</a>
+<a th:href="@{/}">Home Page</a>
 </body>
 </html>
