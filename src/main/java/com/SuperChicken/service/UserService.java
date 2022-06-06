@@ -8,6 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,7 +17,15 @@ public class UserService {
     private final UserRepository userRepository;
     private final Logger logger = LogManager.getLogger();
 
-    public boolean register(RegisterDto dto) {
+    public ResponseEntity<?> register(RegisterDto dto) {
+        if (dto.getName().equals("") || dto.getEmail().equals("") || dto.getPhone().equals("")) {
+            return ResponseEntity.status(400).body("Submit Fail: Please fill out the entire form");
+        }
+
+        if (userRepository.findByEmail(dto.getEmail()).isPresent()) {
+            return ResponseEntity.status(400).body("Submit Fail: Duplicated Email");
+        }
+
         try {
             userRepository.save(
                 User.builder()
@@ -26,9 +35,9 @@ public class UserService {
                     .agreement(dto.isAgreement())
                     .build()
             );
-            return true;
+            return ResponseEntity.status(200).body("Submit Success!");
         } catch (Exception e) {
-            return false;
+            return ResponseEntity.status(500).body("Submit Fail: Database Connection Error");
         }
     }
 

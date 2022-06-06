@@ -7,12 +7,14 @@ import lombok.RequiredArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequiredArgsConstructor
@@ -27,9 +29,12 @@ public class ViewController {
     }
 
     @PostMapping("/submit")
-    public String submit(@ModelAttribute RegisterDto dto) {
-        userController.register(dto);
-        return "redirect:";
+    public ModelAndView submit(@ModelAttribute RegisterDto dto, ModelAndView mav) {
+        ResponseEntity<?> result = userController.register(dto);
+        logger.info("submit result = " + result.getBody());
+        mav.addObject("submitResult", result.getBody());
+        mav.setViewName("submit-result");
+        return mav;
     }
 
     @GetMapping("/admin")

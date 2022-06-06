@@ -6,6 +6,7 @@ import com.SuperChicken.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,7 +15,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/register")
-    public boolean register(@ModelAttribute RegisterDto dto) {
+    public ResponseEntity<?> register(@ModelAttribute RegisterDto dto) {
         return userService.register(dto);
     }
 

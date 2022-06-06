@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+  <th:block th:if="${submitResult != null}">
+    <script>
+      top.alert("[[${submitResult}]]");
+      top.location.href = "/";
+    </script>
+  </th:block>
+</head>
+</html>
