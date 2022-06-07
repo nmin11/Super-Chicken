@@ -25,7 +25,7 @@ public class ViewController {
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("registerDto", new RegisterDto());
-        return "/index";
+        return "index";
     }
 
     @PostMapping("/submit")
@@ -40,7 +40,7 @@ public class ViewController {
     @GetMapping("/admin")
     public String admin(Model model) {
         model.addAttribute("nationCodeDto", new NationCodeDto());
-        return "/admin";
+        return "admin";
     }
 
     @GetMapping("/search-all")
@@ -51,7 +51,7 @@ public class ViewController {
         model.addAttribute("submitters", submitters);
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("searchingCondition", "all");
-        return "/submitter-list";
+        return "submitter-list";
     }
 
     @GetMapping("/search-nation-code")
@@ -63,6 +63,6 @@ public class ViewController {
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("searchingCondition", "nationCode");
         model.addAttribute("nationCode", dto.getNationCode());
-        return "/submitter-list";
+        return "submitter-list";
     }
 }
