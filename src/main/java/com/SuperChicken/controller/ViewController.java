@@ -55,14 +55,14 @@ public class ViewController {
     }
 
     @GetMapping("/search-nation-code")
-    public String searchByNationCode(@ModelAttribute NationCodeDto dto, Model model) {
-        Page<User> submitters = userController.findByNationCode(dto.getNationCode(), 0);
+    public String searchByNationCode(@RequestParam String nationCode, @RequestParam int page, Model model) {
+        Page<User> submitters = userController.findByNationCode(nationCode, page - 1);
         int totalPages = submitters.getTotalPages();
         logger.info("total pages of search by nation code = " + totalPages);
         model.addAttribute("submitters", submitters);
         model.addAttribute("totalPages", totalPages);
         model.addAttribute("searchingCondition", "nationCode");
-        model.addAttribute("nationCode", dto.getNationCode());
+        model.addAttribute("nationCode", nationCode);
         return "submitter-list";
     }
 }
